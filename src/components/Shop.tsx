@@ -3,6 +3,7 @@ import { MessageCircle } from "lucide-react";
 import { products } from "../data/products";
 import type { Category } from "../types";
 import { orderMessage, whatsappUrl } from "../lib/whatsapp";
+import Button from "./Button";
 import SectionHeading from "./SectionHeading";
 
 export default function Shop() {
@@ -52,10 +53,21 @@ export default function Shop() {
               className="group overflow-hidden rounded-[26px] border border-ink/10 bg-white transition duration-300 hover:-translate-y-1 hover:shadow-soft"
             >
               <div
-                className="flex h-44 items-end p-5"
+                className="relative h-44 overflow-hidden border-b border-ink/5"
                 style={{ background: product.accent }}
               >
-                <span className="font-serif text-2xl font-semibold">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className={[
+                    "h-full w-full transition duration-300 group-hover:scale-105",
+                    product.imageFit === "contain"
+                      ? "object-contain p-3"
+                      : "object-cover",
+                  ].join(" ")}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/20" />
+                <span className="absolute bottom-4 left-5 rounded-full bg-white/80 px-3 py-1 font-serif text-xl font-semibold text-ink shadow-sm backdrop-blur-sm">
                   {product.name}
                 </span>
               </div>
@@ -65,15 +77,15 @@ export default function Shop() {
                   {product.description}
                 </p>
 
-                <a
+                <Button
                   href={whatsappUrl(orderMessage(product.name))}
+                  variant="whatsapp"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 flex items-center justify-center gap-2 rounded-full bg-coral py-3 text-xs font-bold text-white transition hover:bg-coralDark"
+                  className="mt-4 w-full text-xs"
                 >
                   <MessageCircle size={15} />
                   Order via WhatsApp
-                </a>
+                </Button>
               </div>
             </article>
           ))}

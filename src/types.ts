@@ -5,4 +5,6 @@ export type Product = {
   description: string;
   accent: string;
   category: Category;
+  image: string;
+  imageFit?: "cover" | "contain";
 };
