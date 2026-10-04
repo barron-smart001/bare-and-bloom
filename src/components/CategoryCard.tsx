@@ -25,7 +25,10 @@ export default function CategoryCard({
   const [activeImage, setActiveImage] = useState(0);
 
   useEffect(() => {
-    if (images.length <= 1) return;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (images.length <= 1 || prefersReducedMotion) return;
 
     const intervalId = window.setInterval(() => {
       setActiveImage((currentImage) => (currentImage + 1) % images.length);
@@ -37,29 +40,20 @@ export default function CategoryCard({
   return (
     <article
       className={[
-        "group relative min-h-[390px] overflow-hidden rounded-[28px] border border-ink/10 p-7 sm:p-9",
-        isFootwear ? "bg-[#FFE7E2]" : "bg-[#EEE7FF]",
+        "group relative min-h-[410px] overflow-hidden rounded-3xl border border-line bg-cream p-6 sm:p-8",
       ].join(" ")}
     >
-      {/* Soft decorative circle */}
-      <div
-        className={[
-          "absolute -right-20 -top-20 h-72 w-72 rounded-full transition-transform duration-500 group-hover:scale-110",
-          isFootwear ? "bg-[#F4C95D]" : "bg-[#D9C7FF]",
-        ].join(" ")}
-      />
-
       {/* Content */}
-      <div className="relative z-20 max-w-[380px]">
+      <div className="relative z-20 max-w-[68%]">
         <span className="text-[10px] font-bold uppercase tracking-[.15em] text-coral">
           {number} / {isFootwear ? "Footwear" : "Skincare"}
         </span>
 
-        <h3 className="mt-3 font-serif text-4xl font-semibold tracking-[-.03em]">
+        <h3 className="mt-3 font-serif text-3xl font-semibold tracking-[-.03em] text-ink sm:text-4xl">
           {title}
         </h3>
 
-        <p className="mt-3 max-w-sm text-sm leading-7 text-ink/65">
+        <p className="mt-3 max-w-sm text-sm leading-6 text-muted sm:leading-7">
           {description}
         </p>
 
@@ -67,7 +61,7 @@ export default function CategoryCard({
           {items.map((item) => (
             <span
               key={item}
-              className="rounded-full bg-white/65 px-3 py-2 text-[10px] font-semibold"
+              className="rounded-full border border-line bg-white/80 px-3 py-2 text-[10px] font-semibold text-ink"
             >
               {item}
             </span>
@@ -76,7 +70,7 @@ export default function CategoryCard({
 
         <a
           href="#products"
-          className="mt-7 inline-flex items-center gap-2 text-xs font-bold text-ink transition group-hover:text-coral"
+          className="mt-6 inline-flex items-center gap-2 text-xs font-semibold text-ink transition hover:text-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral"
         >
           Explore collection
           <ArrowUpRight size={15} />
@@ -86,11 +80,9 @@ export default function CategoryCard({
       {/* REAL PRODUCT IMAGE */}
       <div
         className={[
-          "absolute bottom-0 right-0 z-10 h-[220px] w-[260px] overflow-hidden",
+          "absolute bottom-0 right-0 z-10 h-[210px] w-[44%] min-w-[150px] overflow-hidden",
           "transition-transform duration-500 group-hover:scale-[1.04]",
-          isFootwear
-            ? "rounded-tl-[80px]"
-            : "rounded-tl-[100px]",
+          "rounded-tl-[72px]",
         ].join(" ")}
       >
         {images.map((image, index) => (
@@ -106,10 +98,10 @@ export default function CategoryCard({
         ))}
 
         {/* Soft image overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cream/70 via-transparent to-transparent" />
 
         {images.length > 1 && (
-          <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5">
+            <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5">
             {images.map((image, index) => (
               <button
                 key={image}
@@ -117,7 +109,7 @@ export default function CategoryCard({
                 aria-label={`Show image ${index + 1}`}
                 aria-pressed={index === activeImage}
                 onClick={() => setActiveImage(index)}
-                className={`h-1.5 rounded-full bg-white transition-all duration-500 ease-in-out ${
+                className={`h-1.5 rounded-full bg-white shadow-sm transition-all duration-500 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coral ${
                   index === activeImage ? "w-5 opacity-100" : "w-1.5 opacity-60"
                 }`}
               />

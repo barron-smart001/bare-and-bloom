@@ -30,7 +30,7 @@ export default function App() {
         <Hero />
         <TrustStrip />
 
-        <section className="py-20 sm:py-24">
+        <section className="bg-white py-16 sm:py-20 lg:py-24">
           <div className="mx-auto w-[min(1120px,calc(100%-32px))]">
             <SectionHeading
               eyebrow="What we offer"
@@ -44,33 +44,33 @@ export default function App() {
               description="Bare & Bloom focuses on two things: women's and men's footwear and premium skincare, with quality and affordability at the centre."
             />
 
-            <div className="grid gap-5 md:grid-cols-2">
-             <CategoryCard
-  number="01"
-  category="footwear"
-  title="Step into style."
-  description="Quality footwear selected to bring comfort, confidence and style to your everyday looks."
-  items={["Ladies Slides", "Men's Slides", "More styles"]}
-  images={[femaleShoeOne, femaleShoeTwo, femaleShoeThree, maleShoeOne]}
-  imageAlt="Bare & Bloom footwear"
-/>
+            <div className="grid gap-4 md:grid-cols-2">
+              <CategoryCard
+                number="01"
+                category="footwear"
+                title="Step into style."
+                description="Quality footwear selected to bring comfort, confidence and style to your everyday looks."
+                items={["Ladies Slides", "Men's Slides", "More styles"]}
+                images={[femaleShoeOne, femaleShoeTwo, femaleShoeThree, maleShoeOne]}
+                imageAlt="Ladies' and men's footwear from Bare & Bloom"
+              />
 
-<CategoryCard
-  number="02"
-  category="skincare"
-  title="Care for your glow."
-  description="Premium skincare essentials for simple routines that help you feel fresh, confident and cared for."
-  items={[
-    "Face masks",
-    "Eye & lip masks",
-    "Hand cream",
-    "Face wipes",
-    "Pimple patches",
-    "Sunscreen",
-  ]}
-  images={[faceMask, eyeMask, handCream, faceWipes, pimplePatch, sunscreen]}
-  imageAlt="Bare & Bloom skincare"
-/>
+              <CategoryCard
+                number="02"
+                category="skincare"
+                title="Care for your glow."
+                description="Premium skincare essentials for simple routines that help you feel fresh, confident and cared for."
+                items={[
+                  "Face masks",
+                  "Eye & lip masks",
+                  "Hand cream",
+                  "Face wipes",
+                  "Pimple patches",
+                  "Sunscreen",
+                ]}
+                images={[faceMask, eyeMask, handCream, faceWipes, pimplePatch, sunscreen]}
+                imageAlt="Skincare essentials from Bare & Bloom"
+              />
             </div>
           </div>
         </section>

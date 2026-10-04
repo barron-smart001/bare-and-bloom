@@ -1,27 +1,16 @@
 export default function TrustStrip() {
   const items = [
-    "🇳🇬 Nationwide Delivery",
-    "✨ Premium Quality guaranteed",
-    "💸 Affordable Luxury",
+    "Nationwide delivery across Nigeria",
+    "Quality footwear and skincare",
+    "Order directly on WhatsApp",
   ];
 
   return (
-    <section
-      className="overflow-hidden bg-ink py-4 text-cream"
-      aria-label="Highlights"
-    >
-      <div className="ticker">
-        <div className="ticker-track">
-          {/* Repeat enough times to keep the animation seamless */}
-          {[...items, ...items, ...items, ...items].map((item, index) => (
-            <span
-              key={index}
-              className="shrink-0 px-10 font-medium whitespace-nowrap"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
+    <section className="border-y border-line bg-white" aria-label="Highlights">
+      <div className="mx-auto grid w-[min(1120px,calc(100%-32px))] gap-3 py-4 text-center text-xs font-medium text-muted sm:grid-cols-3 sm:gap-5 sm:py-5">
+        {items.map((item) => (
+          <span key={item}>{item}</span>
+        ))}
       </div>
     </section>
   );

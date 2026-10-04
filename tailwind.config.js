@@ -4,14 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: "#FFF9F2",
+        cream: "#FAF7F2",
         paper: "#FFFFFF",
-        coral: "#FF5A5F",
-        coralDark: "#E8444A",
-        purple: "#7C3AED",
-        purpleDark: "#6224C5",
-        gold: "#F4C95D",
-        ink: "#17151D",
+        coral: "#B86F55",
+        coralDark: "#96543F",
+        muted: "#6B625D",
+        line: "#E7DDD5",
+        ink: "#1C1917",
+        warm: "#F1EBE4",
+        brandSoft: "#D9A58F",
       },
       fontFamily: {
         serif: ["Playfair Display", "Georgia", "serif"],

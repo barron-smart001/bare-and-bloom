@@ -6,11 +6,10 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 sm:py-24">
       <div className="mx-auto w-[min(1120px,calc(100%-32px))]">
-        <div className="relative grid overflow-hidden rounded-[32px] bg-ink p-7 text-white sm:p-10 lg:grid-cols-[1.1fr_.9fr] lg:gap-12 lg:p-14">
-          <div className="absolute -right-40 -top-44 h-[420px] w-[420px] rounded-full bg-gold/10" />
+        <div className="relative grid overflow-hidden rounded-3xl bg-ink p-6 text-white sm:p-10 lg:grid-cols-[1.1fr_.9fr] lg:gap-12 lg:p-14">
 
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.13em] text-gold">
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.13em] text-brandSoft">
               <span className="h-px w-7 bg-current" />
               Let's talk
             </div>
@@ -34,7 +33,7 @@ export default function Contact() {
                 Chat on WhatsApp
               </Button>
 
-              <Button href="tel:08100975601" variant="outline">
+              <Button href="tel:08100975601" variant="outlineLight">
                 <Phone size={16} />
                 Call Us
               </Button>
@@ -43,7 +42,7 @@ export default function Contact() {
 
           <div className="relative z-10 mt-10 flex flex-col justify-center gap-6 lg:mt-0">
             <div className="flex gap-3">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-gold">
+              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-brandSoft">
                 <Phone size={17} />
               </div>
               <div>
@@ -52,7 +51,7 @@ export default function Contact() {
                 </p>
                 <a
                   href="tel:08100975601"
-                  className="mt-1 block text-sm font-medium hover:text-gold"
+                  className="mt-1 block text-sm font-medium hover:text-brandSoft"
                 >
                   0810 097 5601
                 </a>
@@ -60,7 +59,7 @@ export default function Contact() {
             </div>
 
             <div className="flex gap-3">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-gold">
+              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-brandSoft">
                 <MessageCircle size={17} />
               </div>
               <div>
@@ -71,7 +70,7 @@ export default function Contact() {
                   href={whatsappUrl(orderMessage())}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-1 block text-sm font-medium hover:text-gold"
+                  className="mt-1 block text-sm font-medium hover:text-brandSoft"
                 >
                   0812 571 3617
                 </a>
@@ -79,7 +78,7 @@ export default function Contact() {
             </div>
 
             <div className="flex gap-3">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-gold">
+              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10 text-brandSoft">
                 <MapPin size={17} />
               </div>
               <div>
@@ -98,7 +97,7 @@ export default function Contact() {
               href="https://www.google.com/maps/search/?api=1&query=No+5+Eastern+Highway+at+Goldie+Mount+Zion+Calabar"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-fit rounded-full border border-white/30 px-5 py-3 text-xs font-bold transition hover:bg-white hover:text-ink"
+              className="w-fit rounded-full border border-white/30 px-5 py-3 text-xs font-semibold transition hover:bg-white hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandSoft focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
             >
               Get directions
             </a>

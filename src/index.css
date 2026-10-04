@@ -7,8 +7,8 @@
 :root {
   color-scheme: light;
   font-family: "Plus Jakarta Sans", system-ui, sans-serif;
-  background: #FFF9F2;
-  color: #17151D;
+  background: #FAF7F2;
+  color: #1C1917;
 }
 
 html {
@@ -19,7 +19,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #FFF9F2;
+  background: #FAF7F2;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -29,27 +29,8 @@ a {
 }
 
 ::selection {
-  background: #E0A899;
-  color: #17151D;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgba(31, 168, 85, .35); }
-  70% { box-shadow: 0 0 0 12px rgba(31, 168, 85, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(31, 168, 85, 0); }
-}
-
-.float-soft {
-  animation: float 5s ease-in-out infinite;
-}
-
-.whatsapp-pulse {
-  animation: pulse-ring 2.3s infinite;
+  background: #EAD7CE;
+  color: #1C1917;
 }
 
 .reveal {
@@ -63,26 +44,10 @@ a {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .float-soft, .whatsapp-pulse, .reveal { animation: none; }
-}
-.ticker {
-  width: 100%;
-  overflow: hidden;
-}
-
-.ticker-track {
-  display: flex;
-  width: max-content;
-  align-items: center;
-  animation: ticker-right 20s linear infinite;
-}
-
-@keyframes ticker-right {
-  from {
-    transform: translateX(-50%);
-  }
-
-  to {
-    transform: translateX(0);
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -1,10 +1,12 @@
 export type Category = "footwear" | "skincare";
+export type ProductCategory = "ladies-footwear" | "mens-footwear" | "skincare";
+export type ProductFilter = "all" | ProductCategory;
 
 export type Product = {
   name: string;
   description: string;
-  accent: string;
-  category: Category;
+  category: ProductCategory;
   image: string;
-  imageFit?: "cover" | "contain";
+  images?: string[];
+  price?: number;
 };

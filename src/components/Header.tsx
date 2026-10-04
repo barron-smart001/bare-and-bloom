@@ -15,7 +15,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-ink/10 bg-cream/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-line bg-cream/95 backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] w-[min(1120px,calc(100%-32px))] items-center justify-between">
         <Logo />
 
@@ -24,7 +24,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-[13px] font-semibold text-ink/65 transition hover:text-coral"
+              className="text-[13px] font-medium text-muted transition hover:text-coral"
             >
               {link.label}
             </a>
@@ -46,20 +46,20 @@ export default function Header() {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
-          className="grid h-10 w-10 place-items-center rounded-full border border-ink/10 md:hidden"
+          className="grid h-10 w-10 place-items-center rounded-full border border-line md:hidden"
         >
           {open ? <X size={19} /> : <Menu size={19} />}
         </button>
       </div>
 
       {open && (
-        <nav className="border-t border-ink/10 bg-cream px-4 pb-5 pt-2 md:hidden">
+        <nav className="border-t border-line bg-cream px-4 pb-5 pt-2 md:hidden">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block border-b border-ink/5 py-3 text-sm font-semibold"
+              className="block border-b border-line py-3 text-sm font-medium"
             >
               {link.label}
             </a>

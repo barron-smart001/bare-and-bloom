@@ -98,7 +98,7 @@ export default function Hero() {
             RIGHT ARTWORK
         ========================== */}
         <div className="reveal mx-auto w-full max-w-[540px]">
-          <div className="grid grid-cols-[1.48fr_.72fr] grid-rows-[165px_165px] gap-3">
+          <div className="grid grid-cols-[minmax(0,1.4fr)_minmax(120px,.8fr)] grid-rows-[165px_165px] gap-3">
 
             {/* =====================
               LARGE FOOTWEAR CARD
@@ -110,7 +110,7 @@ export default function Hero() {
                 overflow-hidden
                 rounded-t-[145px]
                 rounded-b-[5px]
-                bg-[#c7785c]
+                bg-ink
               "
             >
               {footwearImages.map((image, index) => (
@@ -161,7 +161,7 @@ export default function Hero() {
             {/* =====================
                 TOP RIGHT CARD
             ====================== */}
-            <div className="group relative overflow-hidden rounded-[22px] bg-[#efddcf]">
+            <div className="group relative overflow-hidden rounded-2xl bg-cream">
               <img
                 src={faceMask}
                 alt="Bare & Bloom face mask skincare"
@@ -173,7 +173,7 @@ export default function Hero() {
             {/* =====================
                 SPF CARD
             ====================== */}
-            <div className="group relative flex items-end overflow-hidden rounded-[22px] bg-[#2b292c] p-5">
+            <div className="group relative flex items-end overflow-hidden rounded-2xl bg-ink p-5">
               <img
                 src={lipMask}
                 alt="Bare & Bloom lip mask"
@@ -181,14 +181,14 @@ export default function Hero() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
               <span className="relative z-10 text-sm font-semibold text-white">
-                SPF daily
+                Lip mask
               </span>
             </div>
 
             {/* =====================
                 BOTTOM LEFT
             ====================== */}
-            <div className="group relative flex items-end overflow-hidden rounded-[22px] bg-[#edcbbb] p-4">
+            <div className="group relative flex items-end overflow-hidden rounded-2xl bg-cream p-4">
               <img
                 src={handCream}
                 alt="Bare & Bloom hand cream"
@@ -203,7 +203,7 @@ export default function Hero() {
             {/* =====================
                 QUALITY CARD
             ====================== */}
-            <div className="flex items-center justify-between rounded-[22px] border border-[#e8c9b9] bg-[#fffdf9] px-5 sm:px-6">
+            <div className="flex items-center justify-between rounded-2xl border border-line bg-white px-4 sm:px-6">
               <span className="font-serif text-[17px] text-ink sm:text-[18px]">
                 Best quality, fair prices
               </span>

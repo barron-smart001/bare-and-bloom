@@ -43,4 +43,4 @@ Replace product copy/images with the client's actual catalogue when available.
 
 ## Visual direction
 
-The UI uses a livelier fashion/footwear palette: warm cream, energetic coral, rich purple and small gold accents. The goal is to keep the beauty side premium without making the site feel like a skincare-only brand.
+The storefront uses a warm ivory and espresso foundation with a restrained terracotta accent. Playfair Display is reserved for display typography and Plus Jakarta Sans for navigation, body copy and UI. Product photography leads the shopping experience across ladies' footwear, men's footwear and skincare.
