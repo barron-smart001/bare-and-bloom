@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import type { Category } from "../types";
 
@@ -7,6 +8,8 @@ type Props = {
   title: string;
   description: string;
   items: string[];
+  images: string[];
+  imageAlt: string;
 };
 
 export default function CategoryCard({
@@ -15,8 +18,21 @@ export default function CategoryCard({
   title,
   description,
   items,
+  images,
+  imageAlt,
 }: Props) {
   const isFootwear = category === "footwear";
+  const [activeImage, setActiveImage] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const intervalId = window.setInterval(() => {
+      setActiveImage((currentImage) => (currentImage + 1) % images.length);
+    }, 6000);
+
+    return () => window.clearInterval(intervalId);
+  }, [images.length]);
 
   return (
     <article
@@ -25,14 +41,16 @@ export default function CategoryCard({
         isFootwear ? "bg-[#FFE7E2]" : "bg-[#EEE7FF]",
       ].join(" ")}
     >
+      {/* Soft decorative circle */}
       <div
         className={[
-          "absolute -right-20 -top-20 h-72 w-72 rounded-full",
+          "absolute -right-20 -top-20 h-72 w-72 rounded-full transition-transform duration-500 group-hover:scale-110",
           isFootwear ? "bg-[#F4C95D]" : "bg-[#D9C7FF]",
         ].join(" ")}
       />
 
-      <div className="relative z-10 max-w-[380px]">
+      {/* Content */}
+      <div className="relative z-20 max-w-[380px]">
         <span className="text-[10px] font-bold uppercase tracking-[.15em] text-coral">
           {number} / {isFootwear ? "Footwear" : "Skincare"}
         </span>
@@ -60,25 +78,53 @@ export default function CategoryCard({
           href="#products"
           className="mt-7 inline-flex items-center gap-2 text-xs font-bold text-ink transition group-hover:text-coral"
         >
-          Explore collection <ArrowUpRight size={15} />
+          Explore collection
+          <ArrowUpRight size={15} />
         </a>
       </div>
 
-      {isFootwear ? (
-        <div className="absolute bottom-2 right-4 h-44 w-64">
-          <div className="absolute bottom-5 right-3 h-[66px] w-[205px] rotate-[-9deg] rounded-[70%_25%_35%_55%] bg-gradient-to-br from-[#514340] to-[#1F1B1D] shadow-2xl">
-            <div className="absolute -bottom-2 right-[-5px] h-4 w-28 rounded-full bg-[#151315]" />
-            <div className="absolute -top-5 left-10 h-11 w-24 rotate-[-2deg] rounded-t-[70px] border-[11px] border-b-0 border-[#80605A]" />
+      {/* REAL PRODUCT IMAGE */}
+      <div
+        className={[
+          "absolute bottom-0 right-0 z-10 h-[220px] w-[260px] overflow-hidden",
+          "transition-transform duration-500 group-hover:scale-[1.04]",
+          isFootwear
+            ? "rounded-tl-[80px]"
+            : "rounded-tl-[100px]",
+        ].join(" ")}
+      >
+        {images.map((image, index) => (
+          <img
+            key={image}
+            src={image}
+            alt={imageAlt}
+            aria-hidden={index !== activeImage}
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-in-out ${
+              index === activeImage ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+
+        {/* Soft image overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+
+        {images.length > 1 && (
+          <div className="absolute bottom-3 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5">
+            {images.map((image, index) => (
+              <button
+                key={image}
+                type="button"
+                aria-label={`Show image ${index + 1}`}
+                aria-pressed={index === activeImage}
+                onClick={() => setActiveImage(index)}
+                className={`h-1.5 rounded-full bg-white transition-all duration-500 ease-in-out ${
+                  index === activeImage ? "w-5 opacity-100" : "w-1.5 opacity-60"
+                }`}
+              />
+            ))}
           </div>
-        </div>
-      ) : (
-        <div className="absolute bottom-4 right-10 h-40 w-40 rounded-full bg-gradient-to-br from-[#F9DFD2] to-[#FF5A5F] shadow-2xl">
-          <div className="absolute inset-5 rounded-full border border-white/55" />
-          <div className="grid h-full place-items-center font-serif text-2xl italic text-white">
-            BB
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </article>
   );
 }
