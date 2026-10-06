@@ -4,9 +4,9 @@ import type { Product } from "../types";
 import heelOne from "../public/images/shoes/female shoes 1.jpeg";
 import heelTwo from "../public/images/shoes/female shoes 2.jpeg";
 // Men's footwear
-import heelThree from "../public/images/shoes/guys shoe.jpg";
-import heelFour from "../public/images/shoes/guys shoe 2.jpg";
-import heelFive from "../public/images/shoes/guys brn.webp";
+// import heelThree from "../public/images/shoes/guys shoe.jpg";
+// import heelFour from "../public/images/shoes/guys shoe 2.jpg";
+// import heelFive from "../public/images/shoes/guys brn.webp";
 
 import faceMask from "../public/images/skin care/face mask.jpeg";
 import eyeMask from "../public/images/skin care/eye  mask.jpeg";
@@ -14,6 +14,7 @@ import handCream from "../public/images/skin care/hand cream 1.jpg";
 import faceWipes from "../public/images/skin care/face wipes 2.jpg";
 import pimplePatch from "../public/images/skin care/pimples patch.jpeg";
 import sunscreen from "../public/images/skin care/sunscreen.jpg";
+import lipmask from "../public/images/skin care/lip mask.jpeg";
 
 export const products: Product[] = [
   {
@@ -32,29 +33,9 @@ export const products: Product[] = [
     image: heelTwo,
   },
 
-  {
-    name: "Classic Black Men's Slide",
-    description:
-      "A clean and comfortable black slide made for everyday wear, casual outings and relaxed looks.",
-    category: "mens-footwear",
-    image: heelThree,
-  },
 
-  {
-    name: "Premium Black Men's Slide",
-    description:
-      "A simple but stylish black slide with a comfortable feel and a clean finish.",
-    category: "mens-footwear",
-    image: heelFour,
-  },
 
-  {
-    name: "Brown Pattern Men's Slide",
-    description:
-      "A smart brown slide with a textured finish that adds extra style to your everyday outfit.",
-    category: "mens-footwear",
-    image: heelFive,
-  },
+
 
   {
     name: "Face Masks",
@@ -100,5 +81,13 @@ export const products: Product[] = [
       "An everyday skincare essential for your daily routine.",
     category: "skincare",
     image: sunscreen,
+  },
+
+  {
+    name: "Lip Mask",
+    description:
+      "A nourishing lip care essential for soft, smooth lips.",
+    category: "skincare",
+    image: lipmask,
   },
 ];

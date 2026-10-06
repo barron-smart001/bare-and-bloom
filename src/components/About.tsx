@@ -1,7 +1,7 @@
 import SectionHeading from "./SectionHeading";
 
 import adminOne from "../public/images/admin/admin pics.jpeg";
-import adminTwo from "../public/images/shoes/guys brn.webp";
+import adminTwo from "../public/images/shoes/female shoes 2.jpeg";
 
 const values = [
   ["✦", "Quality", "Products selected with care."],

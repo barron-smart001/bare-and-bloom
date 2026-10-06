@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, MessageCircle } from "lucide-react";
 import type { Product } from "../types";
 import { orderMessage, whatsappUrl } from "../lib/whatsapp";
@@ -16,8 +17,39 @@ const naira = new Intl.NumberFormat("en-NG", {
 });
 
 export default function ProductCard({ product, categoryLabel, onView }: Props) {
+  const cardRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setIsVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -32px 0px" },
+    );
+
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white transition duration-300 hover:-translate-y-1 hover:shadow-soft">
+    <article
+      ref={cardRef}
+      className={`group flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white transition-[opacity,transform,box-shadow] duration-700 ease-out hover:-translate-y-1 hover:shadow-soft ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+      }`}
+    >
       <button
         type="button"
         onClick={onView}
